@@ -1,11 +1,13 @@
 <template>
-  <router-view/>
+  <div id="wrapper" class="container-fluid">
+    <router-view/>
+  </div>
 </template>
 
-<style>
-* {
-  margin: 0;
+<style scoped>
+#wrapper {
   padding: 0;
-  box-sizing: border-box;
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 </style>
