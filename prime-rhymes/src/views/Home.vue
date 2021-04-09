@@ -140,6 +140,7 @@ section {
   font-size: 10vh;
   color: #FEE28E;
   text-transform: uppercase;
+  margin-left: 5vh;
 }
 #landing div h3 {
   font-family: 'Poppins', sans-serif;

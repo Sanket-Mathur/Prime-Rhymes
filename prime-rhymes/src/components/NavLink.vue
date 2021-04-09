@@ -31,5 +31,6 @@ export default {
     font-family: 'Poppins', sans-serif;
     font-size: 1.5vh;
     margin: 0;
+    margin-top: 1vh;
 }
 </style>
