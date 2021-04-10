@@ -103,6 +103,7 @@ export default {
     onSubmit(e) {
       e.preventDefault() 
       console.log(this.bookName)
+      this.$router.push({path: "/books", name: "Books"})
       this.bookName = ''
     }
   }

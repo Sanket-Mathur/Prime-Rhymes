@@ -1,5 +1,159 @@
 <template>
   <div class="container-fluid">
-    <h1>Books Page</h1>
+    <div class="row">
+      <form @submit="onSubmit" class="col-12 col-xl-8">
+        <span class="heading">Title:</span>
+        <div id="title">
+          <input type="text" placeholder="Untitled" v-model="bName">
+          <input type="color" v-model="bColor">
+        </div>
+        <br>
+        <span class="heading">Cover:</span>
+        <div>
+          <span class="cover">
+            <input type="radio" name="cover" value="1" checked v-model="bCover">
+            <img src="images/covers/1.png" alt="">
+          </span>
+          <span class="cover">
+            <input type="radio" name="cover" value="2" v-model="bCover">
+            <img src="images/covers/2.png" alt="">
+          </span>
+          <span class="cover">
+            <input type="radio" name="cover" value="3" v-model="bCover">
+            <img src="images/covers/3.png" alt="">
+          </span>
+        </div>
+        <br><br><br>
+        <input type="submit" value="$5, Create Book">
+      </form>
+      <div id="preview-container" class="col-12 col-xl-4">
+        <div id="preview" :style="'background-image: url(\'images/covers/' + bCover + '.png\')'">
+          <h1 :style="'color: ' + bColor">{{bName}}</h1>
+          <img :src="'images/covers/' + bCover + '.png'" alt="preview">
+        </div>
+      </div>
+    </div>
   </div>
 </template>
+
+<script>
+export default {
+  name: 'Books',
+  props: {
+    defName: String
+  },
+  data() {
+    return {
+      bName: this.defName,
+      bColor: '#000000',
+      bCover: 1
+    }
+  },
+  methods: {
+    onSubmit(e) {
+      e.preventDefault()
+      if(!this.bName) {
+        alert('Add a Name')
+        return
+      }
+      console.log(this.bName)
+      console.log(this.bColor)
+      console.log(this.bCover)
+      this.bName = ''
+      this.bColor = '#000000'
+      this.bCover = 1
+    }
+  }
+}
+</script>
+
+<style scoped>
+.container-fluid {
+  padding: 15vh 0 5vh 2vw;
+  background-color: #FEE28E;
+}
+.heading {
+  font-family: 'Fredoka One', cursive;
+  font-size: 6vh;
+  color: #5A4088;
+}
+#title {
+  margin-left: 2vh;
+  max-width: 80vw;
+}
+input[type=text] {
+  position: relative;
+  top: -1vh;
+  height: 8vh;
+  width: 50vh;
+  max-width: 60vw;
+  padding-left: 2vh;
+  border-radius: 4vh;
+  font-family: 'Poppins', sans-serif;
+  font-size: 4vh;
+  background-color: #5A4088;
+  font-weight: 600;
+  color: white;
+}
+input[type=color] {
+  position: relative;
+  top: 1vh;
+  margin-left: 1vh;
+  height: 8vh;
+  width: 8vh;
+  border-radius: 50%;
+  background-color: #5A4088;
+}
+input[type=color]::-webkit-color-swatch {
+    border: none;
+    border-radius: 100%;
+}
+input[type=color]::-moz-color-swatch {
+    border: none;
+    border-radius: 100%;
+}
+.cover {
+  margin-left: 2vh;
+}
+.cover img {
+  width: 22vh;
+  max-width: 25vw;
+}
+.cover input {
+  position: absolute;
+  transform: scale(2);
+}
+input[type=submit] {
+  position: relative;
+  top: -1vh;
+  height: 8vh;
+  width: 60vh;
+  max-width: 94vw;
+  border-radius: 4vh;
+  font-family: 'Poppins', sans-serif;
+  font-size: 4vh;
+  background-color: #5A4088;
+  font-weight: 600;
+  color: white;
+}
+#preview-container {
+  padding: 10vh;
+}
+#preview {
+  margin-top: 5vh;
+  padding: 5vh;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+#preview img {
+  height: 100%;
+  width: 100%;
+  visibility: hidden;
+}
+#preview h1 {
+  text-align: center;
+  min-height: 6vh;
+  font-family: 'Fredoka One', cursive;
+  font-size: 6vh;
+}
+</style>
