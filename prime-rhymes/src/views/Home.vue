@@ -12,13 +12,11 @@
       <img id="splash2" src="images/splash.png" alt="" class="d-none d-lg-block">
       <div class="row">
         <div class="col-12 col-lg-8 d-flex align-items-center">
-          <div>
-            <h3 class="text-center">Build Your Book</h3><br>
-            <p class="text-center">We respect different tastes of children when it comes to rhymes and that's why we give you the option to customize your rhyme book. Generate a rhyme book, add rhymes of your choice, order the book which will be delivered to your doorstep.</p>
-            <form @submit="onSubmit">
-              <input v-model="bookName" type="text" placeholder="Name Your Book">
-              <input type="submit" class="d-inline" value="&rarr;">
-            </form>
+          <div class="text-center">
+            <h3>Build Your Book</h3><br>
+            <p>We respect different tastes of children when it comes to rhymes and that's why we give you the option to customize your rhyme book. Generate a rhyme book, add rhymes of your choice, order the book which will be delivered to your doorstep.</p>
+            <br><br>
+            <router-link id="toBooks" to="/books">Create Book</router-link>
           </div>
         </div>
         <div class="col-12 col-lg-4 d-flex align-items-center">
@@ -31,9 +29,11 @@
       <img id="splash2" src="images/splashinv.png" alt="" class="d-none d-lg-block">
       <div class="row">
         <div class="col-12 col-lg-8 d-flex align-items-center">
-          <div>
-            <h3 class="text-center">Select Rhymes</h3><br>
-            <p class="text-center">Let your little one select the rhymes he like or just select the ones you think fits his age group the best :-)</p>
+          <div class="text-center">
+            <h3>Select Rhymes</h3><br>
+            <p>Let your little one select the rhymes he like or just select the ones you think fits his age group the best :-)</p>
+            <br><br>
+            <router-link id="toRhymes" to="/rhymes">Browse Rhymes</router-link>
           </div>
         </div>
         <div class="col-12 col-lg-4 d-flex align-items-center">
@@ -199,33 +199,17 @@ section {
   left: 70vh;
   transform: rotate(120deg);
 }
-input[type=text] {
-    height: 8vh;
-    width: 50vh;
-    max-width: 80vw;
-    padding-left: 2vh;
-    margin-left: 2vh;
-    border-radius: 4vh;
-    font-family: 'Poppins', sans-serif;
-    font-size: 4vh;
-    background-color: #5A4088;
-    font-weight: 600;
-    color: white;
-}
-#build input[type=submit] {
-  height: 8vh;
-  width: 8vh;
-  background: #5A4088;
-  color: #FEE28E;
-  border-radius: 50%;
+#build #toBooks {
+  max-width: 80vw;
+  padding: 1vh 3vh;
+  margin-left: 2vh;
+  border-radius: 4vh;
   font-family: 'Poppins', sans-serif;
   font-size: 4vh;
   background-color: #5A4088;
   font-weight: 600;
-  margin-left: 2vh;
-}
-#build form {
-  margin-top: 5vh;
+  color: white;
+  text-decoration: none;
 }
 
 #select {
@@ -276,6 +260,18 @@ input[type=text] {
   text-transform: uppercase;
   margin-right: 2vh;
   margin-bottom: 2vh;
+}
+#select #toRhymes {
+  max-width: 80vw;
+  padding: 1vh 3vh;
+  margin-left: 2vh;
+  border-radius: 4vh;
+  font-family: 'Poppins', sans-serif;
+  font-size: 4vh;
+  background-color: #FEE28E;
+  font-weight: 600;
+  color: black;
+  text-decoration: none;
 }
 
 #products {

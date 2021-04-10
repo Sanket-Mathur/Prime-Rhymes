@@ -56,9 +56,16 @@ export default {
         alert('Add a Name')
         return
       }
-      console.log(this.bName)
-      console.log(this.bColor)
-      console.log(this.bCover)
+
+      const newBook = {
+        name: this.bName,
+        color: this.bColor,
+        cover: this.bCover,
+        rhymes: []
+      }
+      
+      this.$emit('add-book', newBook)
+
       this.bName = ''
       this.bColor = '#000000'
       this.bCover = 1

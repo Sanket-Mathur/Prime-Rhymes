@@ -1,7 +1,7 @@
 <template>
   <div id="wrapper" class="container-fluid">
     <Header />
-    <router-view/>
+    <router-view @add-book="addBook" />
     <Footer />
   </div>
 </template>
@@ -12,9 +12,20 @@ import Footer from "./components/Footer";
 
 export default {
   name: 'App',
+  data() {
+    return {
+      books: []
+    }
+  },
   components: {
     Header,
     Footer
+  },
+  methods: {
+    addBook(book) {
+      this.books = [...this.books, book]
+      console.log(this.books)
+    }
   }
 }
 </script>
