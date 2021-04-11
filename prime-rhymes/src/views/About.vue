@@ -7,7 +7,7 @@
       <p>We have a solution for your problem. On our application, you can select exactly all the rhymes you want in your book and not just that, you can even customize your book to match your needs.</p>
       <h5>Implementaion</h5>
       <p>We respect different tastes of children when it comes to rhymes and that's why we give you the option to customize your rhyme book. Generate a rhyme book, add rhymes of your choice, order the book which will be delivered to your doorstep.</p>
-      <h1>Contact Us</h1>
+      <h1 id="contact">Contact Us</h1>
       <h5>Developer</h5>
       <p>Sanket Mathur</p>
       <h5>Email Address</h5>

@@ -1,7 +1,7 @@
 <template>
   <div id="wrapper" class="container-fluid">
-    <Header :key="reRender" :totalBooks="books.length" />
-    <router-view @add-book="addBook" @add-rhyme="addRhyme" :rhymes="rhymes" :books="books" />
+    <Header :totalBooks="books.length" />
+    <router-view @add-book="addBook" @add-rhyme="addRhyme" @delete-book="delBook" :rhymes="rhymes" :books="books" />
     <Footer />
   </div>
 </template>
@@ -17,7 +17,6 @@ export default {
       books: [],
       rhymes: [],
       products: [],
-      reRender: 0
     }
   },
   components: {
@@ -91,15 +90,20 @@ export default {
   methods: {
     addBook(book) {
       this.books = [...this.books, book]
-      this.reRender += 1
     },
     addRhyme(rhyme) {
       for(var i = 0; i < this.books.length; ++i) {
         if(this.books[i].id == rhyme.id) {
           this.books[i].rhymes = [...this.books[i].rhymes, rhyme.rhyme]
+          this.books[i].rhymes = [...new Set(this.books[i].rhymes)]
         }
       }
-    }
+    },
+    delBook(id) {
+      this.books = this.books.filter((book) => {
+        return book.id !== id
+      })
+    } 
   }
 }
 </script>

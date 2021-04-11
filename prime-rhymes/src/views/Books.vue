@@ -62,7 +62,7 @@ export default {
       }
 
       const newBook = {
-        id: this.books.length,
+        id: this.books.length > 0 ? this.books[this.books.length - 1].id + 1 : 0,
         name: this.bName,
         color: this.bColor,
         cover: this.bCover,
