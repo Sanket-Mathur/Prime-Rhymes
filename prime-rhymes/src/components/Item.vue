@@ -58,7 +58,9 @@ h2 {
   float: right;
 }
 h5 {
-    color: #FFC700;
+  font-family: 'Fredoka One', cursive;
+  font-size: 2vh;
+  color: #FFC700;
 }
 img {
   height: 4vh;

@@ -2,7 +2,7 @@
   <div class="container-fluid">
     <h1 class="text-center" v-if="books.length === 0">No Item Added</h1>
     <Item @delete-book="$emit('delete-book', book.id)" :key="book.id" :book="book" v-for="book in books" />
-    <h2 @click="buy">BUY</h2>
+    <h2 @click="buy" v-if="books.length !== 0">BUY</h2>
   </div>
 </template>
 
