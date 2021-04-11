@@ -4,6 +4,7 @@ import About from '../views/About'
 import Books from '../views/Books'
 import Rhymes from '../views/Rhymes'
 import Products from '../views/Products'
+import Checkout from '../views/Checkout'
 
 const routes = [
   {
@@ -30,6 +31,11 @@ const routes = [
     path: '/products',
     name: 'Products',
     component: Products
+  },
+  {
+    path: '/checkout',
+    name: 'Checkout',
+    component: Checkout
   }
 ]
 

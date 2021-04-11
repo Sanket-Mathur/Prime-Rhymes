@@ -3,7 +3,7 @@
     <nav class="navbar navbar-expand-lg fixed-top navbar-light">
       <router-link to="/" class="navbar-brand">
         <img src="logo/logo.png" class="d-inline-block align-top" alt="logo">
-        <h3 class="mx-2 d-none d-md-inline">Prime Rhymes</h3>
+        <h3 class="mx-2 d-none d-sm-inline d-lg-none d-xl-inline">Prime Rhymes</h3>
       </router-link>
       <button class="navbar-toggler" type="button" @click="toggleDropdown">
         <span class="navbar-toggler-icon"></span>
@@ -30,6 +30,11 @@
               <NavLink minor="Read more" text="About Us" />
             </router-link>
           </li>
+          <li>
+            <router-link to="/checkout">
+              <NavBook :totalBooks="totalBooks" />
+            </router-link>
+          </li>
         </ul>
       </div>
     </nav>
@@ -38,10 +43,16 @@
 
 <script>
 import NavLink from "./NavLink"
+import NavBook from "./NavBook"
+
 export default {
     name: 'Header',
+    props: {
+      totalBooks: Number
+    },
     components: {
-        NavLink
+        NavLink,
+        NavBook
     },
     data() {
       return {

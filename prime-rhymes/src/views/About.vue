@@ -27,7 +27,7 @@ export default {
 
 <style scoped>
 .container-fluid {
-  padding: 8vh 0 5vh 0;
+  padding: 8vh 1vh 5vh 1vh;
   background-color: #5A4088;
 }
 h1 {

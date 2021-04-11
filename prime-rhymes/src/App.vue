@@ -1,6 +1,6 @@
 <template>
   <div id="wrapper" class="container-fluid">
-    <Header />
+    <Header :key="reRender" :totalBooks="books.length" />
     <router-view @add-book="addBook" @add-rhyme="addRhyme" :rhymes="rhymes" :books="books" />
     <Footer />
   </div>
@@ -16,7 +16,8 @@ export default {
     return {
       books: [],
       rhymes: [],
-      products: []
+      products: [],
+      reRender: 0
     }
   },
   components: {
@@ -90,6 +91,7 @@ export default {
   methods: {
     addBook(book) {
       this.books = [...this.books, book]
+      this.reRender += 1
     },
     addRhyme(rhyme) {
       for(var i = 0; i < this.books.length; ++i) {
