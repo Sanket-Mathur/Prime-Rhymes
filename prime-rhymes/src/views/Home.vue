@@ -26,7 +26,7 @@
     </section>
     <section id="select">
       <img id="splash1" src="images/splashinv.png" alt="" class="d-none d-lg-block">
-      <img id="splash2" src="images/splashinv.png" alt="" class="d-none d-lg-block">
+      <img id="splash2" src="images/splashyellow.png" alt="" class="d-none d-lg-block">
       <div class="row">
         <div class="col-12 col-lg-8 d-flex align-items-center">
           <div class="text-center">
