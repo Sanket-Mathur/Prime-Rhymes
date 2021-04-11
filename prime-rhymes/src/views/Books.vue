@@ -1,31 +1,33 @@
 <template>
   <div class="container-fluid">
     <div class="row">
-      <form @submit="onSubmit" class="col-12 col-xl-8">
-        <span class="heading">Title:</span>
-        <div id="title">
-          <input type="text" placeholder="Untitled" v-model="bName">
-          <input type="color" v-model="bColor">
-        </div>
-        <br>
-        <span class="heading">Cover:</span>
-        <div>
-          <span class="cover">
-            <input type="radio" name="cover" value="1" checked v-model="bCover">
-            <img src="images/covers/1.png" alt="">
-          </span>
-          <span class="cover">
-            <input type="radio" name="cover" value="2" v-model="bCover">
-            <img src="images/covers/2.png" alt="">
-          </span>
-          <span class="cover">
-            <input type="radio" name="cover" value="3" v-model="bCover">
-            <img src="images/covers/3.png" alt="">
-          </span>
-        </div>
-        <br><br><br>
-        <input type="submit" value="$5, Create Book">
-      </form>
+      <div class="col-12 col-xl-8">
+        <form @submit="onSubmit" class="mx-auto">
+          <span class="heading">Title:</span>
+          <div id="title">
+            <input type="text" placeholder="Untitled" v-model="bName">
+            <input type="color" v-model="bColor">
+          </div>
+          <br>
+          <span class="heading">Cover:</span>
+          <div>
+            <span class="cover">
+              <input type="radio" name="cover" value="1" checked v-model="bCover">
+              <img src="images/covers/1.png" alt="">
+            </span>
+            <span class="cover">
+              <input type="radio" name="cover" value="2" v-model="bCover">
+              <img src="images/covers/2.png" alt="">
+            </span>
+            <span class="cover">
+              <input type="radio" name="cover" value="3" v-model="bCover">
+              <img src="images/covers/3.png" alt="">
+            </span>
+          </div>
+          <br><br><br>
+          <input type="submit" value="$5, Create Book">
+        </form>
+      </div>
       <div id="preview-container" class="col-12 col-xl-4">
         <div id="preview" :style="'background-image: url(\'images/covers/' + bCover + '.png\')'">
           <h1 :style="'color: ' + bColor">{{bName}}</h1>
@@ -33,18 +35,16 @@
         </div>
       </div>
     </div>
+    <img id="splash1" src="images/splash.png" alt="" class="d-none d-lg-block">
   </div>
 </template>
 
 <script>
 export default {
   name: 'Books',
-  props: {
-    defName: String
-  },
   data() {
     return {
-      bName: this.defName,
+      bName: '',
       bColor: '#000000',
       bCover: 1
     }
@@ -53,7 +53,7 @@ export default {
     onSubmit(e) {
       e.preventDefault()
       if(!this.bName) {
-        alert('Add a Name')
+        alert('Add a Title')
         return
       }
 
@@ -65,6 +65,7 @@ export default {
       }
       
       this.$emit('add-book', newBook)
+      alert('Added')
 
       this.bName = ''
       this.bColor = '#000000'
@@ -88,6 +89,9 @@ export default {
   margin-left: 2vh;
   max-width: 80vw;
 }
+form {
+  width: fit-content;
+}
 input[type=text] {
   position: relative;
   top: -1vh;
@@ -99,7 +103,6 @@ input[type=text] {
   font-family: 'Poppins', sans-serif;
   font-size: 4vh;
   background-color: #5A4088;
-  font-weight: 600;
   color: white;
 }
 input[type=color] {
@@ -151,6 +154,7 @@ input[type=submit] {
   padding: 5vh;
   background-size: contain;
   background-repeat: no-repeat;
+  overflow: hidden;
 }
 #preview img {
   height: 100%;
@@ -159,8 +163,14 @@ input[type=submit] {
 }
 #preview h1 {
   text-align: center;
-  min-height: 6vh;
+  max-height: 0vh;
   font-family: 'Fredoka One', cursive;
   font-size: 6vh;
+}
+#splash1 {
+  position: absolute;
+  height: 50vh;
+  top: -20vh;
+  left: -20vh;
 }
 </style>
