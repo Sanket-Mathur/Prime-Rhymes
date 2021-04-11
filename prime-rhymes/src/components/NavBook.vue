@@ -27,6 +27,7 @@ p {
     color: white;
     background: red;
     font-size: 2vh;
+    font-weight: bold;
 }
 @media only screen and (min-width: 992px) {
     p {

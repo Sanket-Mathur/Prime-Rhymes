@@ -35,6 +35,7 @@
         </div>
       </div>
     </div>
+    <img id="added" alt="added">
     <img id="splash1" src="images/splash.png" alt="" class="d-none d-lg-block">
   </div>
 </template>
@@ -69,11 +70,18 @@ export default {
       }
       
       this.$emit('add-book', newBook)
-      alert('Added')
 
       this.bName = ''
       this.bColor = '#000000'
       this.bCover = 1
+
+      var added = document.getElementById('added')
+      added.setAttribute('src','images/check.gif')
+      added.style.display = 'block'
+      setTimeout(() => {
+        added.style.display = 'none'
+        added.removeAttribute('src')
+      },3000);
     }
   }
 }
@@ -176,5 +184,13 @@ input[type=submit] {
   height: 50vh;
   top: -20vh;
   left: -20vh;
+}
+#added {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 20vh;
+  transform: translate(-50%, -50%);
+  display: none;
 }
 </style>

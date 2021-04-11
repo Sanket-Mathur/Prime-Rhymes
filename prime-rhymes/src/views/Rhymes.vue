@@ -15,6 +15,7 @@
         <input type="submit" value="1$, Add">
       </form>
     </div>
+    <img id="added" alt="added">
     <img id="splash1" src="images/splashinv.png" alt="" class="d-none d-lg-block">
   </div>
 </template>
@@ -61,9 +62,16 @@ export default {
       }
 
       this.$emit('add-rhyme', newRhyme)
-      alert('Added')
 
       this.remove()
+
+      var added = document.getElementById('added')
+      added.setAttribute('src','images/check.gif')
+      added.style.display = 'block'
+      setTimeout(() => {
+        added.style.display = 'none'
+        added.removeAttribute('src')
+      },3000);
     }
   }
 }
@@ -137,5 +145,14 @@ export default {
   top: -15vh;
   left: -15vh;
   transform: rotate(80deg);
+}
+#added {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 20vh;
+  transform: translate(-50%, -50%);
+  display: none;
+  z-index: 2;
 }
 </style>
