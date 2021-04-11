@@ -42,6 +42,9 @@
 <script>
 export default {
   name: 'Books',
+  props: {
+    books: Array
+  },
   data() {
     return {
       bName: '',
@@ -58,6 +61,7 @@ export default {
       }
 
       const newBook = {
+        id: this.books.length,
         name: this.bName,
         color: this.bColor,
         cover: this.bCover,
