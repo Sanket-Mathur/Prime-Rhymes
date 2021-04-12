@@ -84,6 +84,18 @@ export default {
         title: 'Row Row Row your Boat',
         image: 'images/rhymes/10.jpg',
         video: 'https://www.youtube.com/embed/PZJS2_pWMpE'
+      },
+      {
+        id: 11,
+        title: 'A Wise Old Owl',
+        image: 'images/rhymes/11.jpg',
+        video: 'https://www.youtube.com/embed/MYNJyg78Jmc'
+      },
+      {
+        id: 12,
+        title: 'Three Little Pigs',
+        image: 'images/rhymes/12.jpg',
+        video: 'https://www.youtube.com/embed/2s7cz6p7jew'
       }
     ];
   },

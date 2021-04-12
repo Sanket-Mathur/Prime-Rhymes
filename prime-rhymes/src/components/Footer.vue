@@ -1,7 +1,7 @@
 <template>
   <footer>
     <h1>Prime Rhymes</h1>
-    <router-link id="checkout" to="/">
+    <router-link id="checkout" to="/checkout">
       <h3>Checkout</h3>
     </router-link>
     <hr>
