@@ -22,7 +22,7 @@
     </router-link>
     <hr>
     <h3 class="d-inline">Copyright &copy; 2021 Sanket Mathur</h3>
-    <a href="https://github.com/Sanket-Mathur" id="source" target="_blank">
+    <a href="https://github.com/Sanket-Mathur/Prime-Rhymes" id="source" target="_blank">
       <img src="images/GitHub-Mark-120px-plus.png" alt="">&emsp;
       <h3>Source Code</h3>
     </a>
