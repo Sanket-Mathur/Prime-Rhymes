@@ -1,7 +1,7 @@
 <template>
   <div id="wrapper" class="container-fluid">
     <Header :totalBooks="books.length" />
-    <router-view @add-book="addBook" @add-rhyme="addRhyme" @delete-book="delBook" :rhymes="rhymes" :books="books" />
+    <router-view @add-book="addBook" @add-rhyme="addRhyme" @delete-book="delBook" :rhymes="rhymes" :books="books" :products="products" />
     <Footer />
   </div>
 </template>
@@ -51,7 +51,7 @@ export default {
       },
       {
         id: 5,
-        title: 'Ring-a-Ring o\' Roses',
+        title: 'Ring Around the Rosy',
         image: 'images/rhymes/5.jpg',
         video: 'https://www.youtube.com/embed/uJI11ekrXy0'
       },
@@ -96,6 +96,80 @@ export default {
         title: 'Three Little Pigs',
         image: 'images/rhymes/12.jpg',
         video: 'https://www.youtube.com/embed/2s7cz6p7jew'
+      }
+    ];
+    this.products = [
+      {
+        id: 1,
+        name: 'Sleepy Time',
+        image: 'images/products/1.jpg',
+        age: 1,
+        category: 'Sleep',
+        rhymes: ['Ba Ba Black Sheep', 'Hush Little Baby', 'A Wise Old Owl', 'Three Little Pigs', 'Twinkle Twinkle Little Star']
+      },
+      {
+        id: 2,
+        name: 'Love to Play',
+        image: 'images/products/2.jpg',
+        age: 1,
+        category: 'Play',
+        rhymes: ['Ring Around the Rosy', 'Humpty Dumpty', '5 Little Monkeys', 'Three Little Pigs', 'Jack and Jill']
+      },
+      {
+        id: 3,
+        name: 'Friends',
+        image: 'images/products/3.jpg',
+        age: 1,
+        category: 'Play',
+        rhymes: ['Baby Shark', 'Hush Little Baby', 'Johny Johny Yes Papa', 'Humpty Dumpty', 'A Wise Old Own']
+      },
+      {
+        id: 4,
+        name: 'Bed Time',
+        image: 'images/products/4.jpg',
+        age: 2,
+        category: 'Sleep',
+        rhymes: ['5 Little Monkeys', 'Hush Little Baby', 'A Wise Old Owl', 'Three Little Pigs', 'Jack and Jill']
+      },
+      {
+        id: 5,
+        name: 'I\'m Playing',
+        image: 'images/products/5.jpg',
+        age: 2,
+        category: 'Play',
+        rhymes: ['Johny Johny Yes Papa', '5 Little Monkeys', 'Ring Around the Rosy', 'Three Little Pigs', 'Humpty Dumpty']
+      },
+      {
+        id: 6,
+        name: 'KG Rhymes',
+        image: 'images/products/6.jpg',
+        age: 2,
+        category: 'KinderGarden',
+        rhymes: ['Ba Ba Black Sheep', 'Humpty Dumpty', 'Ring Around the Rosy', 'Three Little Pigs', 'Jack and Jill']
+      },
+      {
+        id: 7,
+        name: 'Rhyme Master',
+        image: 'images/products/7.jpg',
+        age: 3,
+        category: 'Play',
+        rhymes: ['Johny Johny Yes Papa', 'Ring Around the Rosy', 'Row Row Row your Boat', 'Baby Shark', 'Jack and Jill']
+      },
+      {
+        id: 8,
+        name: 'Course 001',
+        image: 'images/products/8.jpg',
+        age: 3,
+        category: 'School',
+        rhymes: ['Ring Around the Rosy', 'Humpty Dumpty', 'A Wise Old Owl', 'Johny Johny Yes Papa', 'Jack and Jill']
+      },
+      {
+        id: 9,
+        name: 'English',
+        image: 'images/products/9.jpg',
+        age: 3,
+        category: 'School',
+        rhymes: ['Ba Ba Black Sheep', 'Hush Little Baby', 'A Wise Old Owl', 'Three Little Pigs', 'Jack and Jill']
       }
     ];
   },

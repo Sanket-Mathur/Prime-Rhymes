@@ -9,10 +9,10 @@
       <iframe width="1280" height="720" src="" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       <form @submit="onSubmit">
         <select name="book" v-model="bName">
-          <option :value="book.id" :key="book.id" v-for="book in books">{{ book.name }}</option>
+          <option :value="book.id" :key="book.id" v-for="book in books.filter((book) => { return !book.age })">{{ book.name }}</option>
           <option value="-1">Create New Book</option>
         </select>
-        <input type="submit" value="1$, Add">
+        <input type="submit" value="$1, Add">
       </form>
     </div>
     <img id="added" alt="added">
@@ -127,6 +127,7 @@ export default {
   border-radius: 4vh;
   font-family: 'Poppins', sans-serif;
   font-size: 4vh;
+  font-weight: 600;
   background-color: #5A4088;
   color: white;
 }

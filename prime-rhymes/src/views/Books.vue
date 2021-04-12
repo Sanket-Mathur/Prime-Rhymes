@@ -186,7 +186,7 @@ input[type=submit] {
   left: -20vh;
 }
 #added {
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
   height: 20vh;
