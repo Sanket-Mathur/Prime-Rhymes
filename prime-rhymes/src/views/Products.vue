@@ -12,6 +12,8 @@
     <div class="row">
       <Product @add-book="addBook" :key="product.id" v-for="product in products" :product="product" :age="3" />
     </div>
+    <img id="added" alt="added">
+    <img id="splash1" src="images/splash.png" alt="" class="d-none d-lg-block">
   </div>
 </template>
 
@@ -29,6 +31,13 @@ export default {
   methods: {
     addBook(book) {
       this.$emit('add-book', book)
+      var added = document.getElementById('added')
+      added.setAttribute('src','images/check.gif')
+      added.style.display = 'block'
+      setTimeout(() => {
+        added.style.display = 'none'
+        added.removeAttribute('src')
+      },3000);
     }
   }
 }
@@ -46,5 +55,20 @@ h1 {
   text-transform: uppercase;
   margin-top: 10vh;
   margin-bottom: 5vh;
+}
+#splash1 {
+  position: absolute;
+  transform: rotate(-50deg);
+  height: 50vh;
+  top: -20vh;
+  left: -20vh;
+}
+#added {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  height: 20vh;
+  transform: translate(-50%, -50%);
+  display: none;
 }
 </style>

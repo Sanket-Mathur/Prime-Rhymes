@@ -1,7 +1,8 @@
 <template>
   <div class="container-fluid">
+    <input id="search" type="text" @keyup="search" v-model="searchText">
     <div class="row">
-      <Rhyme class="item" @click="show(rhyme)" :item="rhyme" :key="rhyme.id" v-for="rhyme in rhymes" />
+      <Rhyme class="item" @click="show(rhyme)" :item="rhyme" :key="rhyme.id" v-for="rhyme in rhymelist" />
     </div>
     <div id="popup">
       <h4 @click="remove()">&nbsp;x&nbsp;</h4>
@@ -26,6 +27,8 @@ export default {
   name: 'Rhymes',
   data() {
     return {
+      rhymelist: [],
+      searchText: '',
       bName: '',
       rName: ''
     }
@@ -37,7 +40,15 @@ export default {
   components: {
     Rhyme
   },
+  created() {
+    this.rhymelist = this.rhymes
+  },
   methods: {
+    search() {
+      this.rhymelist = this.rhymes.filter((rhyme) => {
+        return rhyme.title.toLowerCase().indexOf(this.searchText.toLowerCase()) !== -1
+      })
+    },
     show(rhyme) {
       var popup = document.getElementById('popup')
       popup.style.display = 'block'
@@ -80,7 +91,8 @@ export default {
 <style scoped>
 .container-fluid {
   background-color: #5A4088;
-  padding: 20vh 10vw 5vh 10vw;
+  padding: 15vh 10vw 5vh 10vw;
+  min-height: 100vh;
 }
 .item {
   cursor: pointer;
@@ -155,5 +167,19 @@ export default {
   transform: translate(-50%, -50%);
   display: none;
   z-index: 2;
+}
+#search {
+  width: 60vw;
+  height: 6vh;
+  margin: 0 10vw 10vh 10vw;
+  background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJDYXBhXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB2aWV3Qm94PSIwIDAgNTYuOTY2IDU2Ljk2NiIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNTYuOTY2IDU2Ljk2NjsiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPHBhdGggZD0iTTU1LjE0Niw1MS44ODdMNDEuNTg4LDM3Ljc4NmMzLjQ4Ni00LjE0NCw1LjM5Ni05LjM1OCw1LjM5Ni0xNC43ODZjMC0xMi42ODItMTAuMzE4LTIzLTIzLTIzcy0yMywxMC4zMTgtMjMsMjMNCglzMTAuMzE4LDIzLDIzLDIzYzQuNzYxLDAsOS4yOTgtMS40MzYsMTMuMTc3LTQuMTYybDEzLjY2MSwxNC4yMDhjMC41NzEsMC41OTMsMS4zMzksMC45MiwyLjE2MiwwLjkyDQoJYzAuNzc5LDAsMS41MTgtMC4yOTcsMi4wNzktMC44MzdDNTYuMjU1LDU0Ljk4Miw1Ni4yOTMsNTMuMDgsNTUuMTQ2LDUxLjg4N3ogTTIzLjk4NCw2YzkuMzc0LDAsMTcsNy42MjYsMTcsMTdzLTcuNjI2LDE3LTE3LDE3DQoJcy0xNy03LjYyNi0xNy0xN1MxNC42MSw2LDIzLjk4NCw2eiIvPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPC9zdmc+DQo=);
+  background-repeat: no-repeat;
+  background-size: 4vh;
+  background-position-x: 100%;
+  background-position-y: 1vh;
+  font-family: 'Poppins', sans-serif;
+  font-size: 4vh;
+  font-weight: 600;
+  padding: 1vh;
 }
 </style>
