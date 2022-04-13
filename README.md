@@ -14,7 +14,7 @@
 - [Run Locally](https://github.com/Sanket-Mathur/Prime-Rhymes#run-locally)
 
 ## Deployment Link
-### [Prime Rhymes](https://primerhymes.ga)
+### [https://primerhymes.azurewebsites.net/](https://primerhymes.azurewebsites.net/)
 <br>
 
 ![](display/Screenshot.png)
